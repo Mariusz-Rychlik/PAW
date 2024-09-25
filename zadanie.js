@@ -1,6 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const Curl = require('url');
+var mime = require('mime-types')
 
 http.createServer(function (req, res) {
     var url = Curl.parse(req.url, true).pathname;
@@ -34,7 +35,7 @@ http.createServer(function (req, res) {
             }
             else{
                 res.writeHead(200, {'Content-Type': 'text/html'});
-                res.write(data)
+                res.write(data);
                 res.end();
             }
         })
@@ -65,7 +66,21 @@ http.createServer(function (req, res) {
         }
 
     else{
-        res.end();
+        fs.readFile('./assets/'+url, function (err, data) {
+            if (err) {
+                res.setHeader('Content-Type', 'application/json');
+                //console.log(err);
+                if(res.status=404) {
+                    res.write(JSON.stringify({error : '404 page not found'}));
+                }
+                res.end();
+            } else {
+                var mime2 = mime.lookup('./assets/'+url);
+                res.setHeader('Content-Type', mime2 );
+                res.write(data);
+                res.end();
+            }
+        })
     }
 
 
