@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav>
-    <a href="/">strona glowna</a>
-    <a href="/kontakt">kontakt</a>
-    <a href="/oferta">oferta</a>
-    <a href="/o-nas">o nas</a>
+    <a href="/">strona glowna |</a>
+    <a href="/kontakt">kontakt |</a>
+    <a href="/oferta">oferta |</a>
+    <a href="/o-nas">o nas </a>
 </nav>
 <h1>Kontakt</h1>
-<form action="" method="post">
-    <label for="name">imie</label><input type="text" name="name" id="name">
-    <label for="lName">nazwisko</label><input type="text" name="lName" id="lName">
-    <label for="mail">email</label><input type="email" name="mail" id="mail">
+<form action="/" method="post">
+    <label for="name">imie</label><input type="text" name="name" id="name"><br><br>
+    <label for="lName">nazwisko</label><input type="text" name="lName" id="lName"><br><br>
+    <label for="mail">email</label><input type="email" name="mail" id="mail"><br><br>
     <label>
         Pole tekstowe
         <textarea></textarea>
-    </label>
+    </label><br><br>
+    <button type="submit" name="sub">Send</button>
+    <br><br>
 </form>
 <footer>Mariusz Rychlik 4C</footer>
+<?php
+    if(isset($_POST["sub"])){
+    $name = $_POST["name"];
+    $lName = $_POST["lName"];
+    $email = $_POST["mail"];
+    console.log($name+$lName+$email);
+    }
+?>
 </body>
+
 </html>

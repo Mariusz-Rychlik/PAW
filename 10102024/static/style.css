@@ -1,0 +1,63 @@
+body{
+    background-color: beige;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+a:hover{
+    text-decoration: underline;
+    color: darkblue;
+}
+form{
+    text-align: center;
+}
+main{
+    display: flex;
+    background-color: darkblue;
+}
+img{
+    width: 34.5%;
+    height: 33%;
+}
+p {
+    color: darkblue;
+    font-weight: bold;
+    text-align: center;
+    background-color: beige;
+}
+h1{
+    color: darkblue;
+    font-weight: bold;
+    text-align: center;
+    background-color: beige;
+}
+footer{
+    color: red;
+    text-align: center;
+    background-color: darkblue;
+}
+nav{
+    text-align: center;
+    background-color: beige;
+}
+table{
+    text-align: center;
+    align-self: center;
+    border-collapse: collapse;
+}
+th,td,tr{
+    border: 1px solid darkblue;
+}
+th{
+    background-color: darkblue;
+    color: beige;
+}
+tr:nth-child(n+1):hover{
+    background-color: yellow;
+}
+div{
+    display: flex;
+    justify-content: center;
+}
