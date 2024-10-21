@@ -21,6 +21,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'static')));
 
+app.post('/submit', (req, res) => {
+    console.log(req.body);
+  res.redirect(302, '/');
+})
+
 app.use('/', indexRouter);
 app.use('/o-nas', usersRouter);
 app.use('/oferta', ofertaRouter);
