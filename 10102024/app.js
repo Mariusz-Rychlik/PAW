@@ -3,6 +3,15 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'paws'
+});
+connection.connect();
+
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -23,9 +32,46 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 app.post('/submit', (req, res) => {
     console.log(req.body);
-  res.redirect(302, '/');
-})
 
+    connection.query('INSERT INTO messages (name, last_name, email, message)' + `VALUES ("${req.body.name}","${req.body.lName}","${req.body.mail}","${req.body.mess}");`,(err,rows,fields)=>{
+      if (err) throw err;
+      res.redirect(302, '/');
+    });
+
+
+});
+app.get('/api/contact-messages', (req, res) => {
+  connection.query('SELECT * FROM messages',(err,rows,fields)=>{
+    if (err) throw err
+    let a = [];
+    for(let i=0;i<rows.length;i++){
+      const b = {
+        name: rows[i].name,
+        last_name: rows[i].last_name,
+        email: rows[i].email,
+        message:rows[i].message
+      }
+      a.push(b);
+    }
+    res.send(JSON.stringify(a));
+  });
+});
+app.get('/api/contact-messages/:id', (req, res) => {
+  connection.query('SELECT * FROM `messages`' + 'WHERE id ='+req.params.id,(err,rows,fields)=>{
+    if (err) throw err
+    let a = [];
+    for(let i=0;i<rows.length;i++){
+      const b = {
+        name: rows[i].name,
+        last_name: rows[i].last_name,
+        email: rows[i].email,
+        message:rows[i].message
+      }
+      a.push(b);
+    }
+    res.send(JSON.stringify(a));
+  });
+})
 app.use('/', indexRouter);
 app.use('/o-nas', usersRouter);
 app.use('/oferta', ofertaRouter);
