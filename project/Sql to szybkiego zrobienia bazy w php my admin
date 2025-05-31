@@ -1,0 +1,44 @@
+CREATE DATABASE IF NOT EXISTS tankdb CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE tankdb;
+
+CREATE TABLE tanks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    information TEXT NOT NULL,
+    hullArmor VARCHAR(255),
+    turretArmor VARCHAR(255),
+    crew VARCHAR(255),
+    forwardSpeed VARCHAR(255),
+    backwardSpeed VARCHAR(255),
+    enginePower VARCHAR(255),
+    weight VARCHAR(255),
+    powerToWeightRatio VARCHAR(255),
+    mainArmament TEXT,
+    ammunition VARCHAR(255),
+    verticalTurretRotation VARCHAR(255),
+    horizontalTurretRotation VARCHAR(255),
+    reloadSpeed VARCHAR(255),
+    verticalGuidance VARCHAR(255)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO tanks (
+    name, information, hullArmor, turretArmor, crew, forwardSpeed, backwardSpeed, enginePower, weight, powerToWeightRatio,
+    mainArmament, ammunition, verticalTurretRotation, horizontalTurretRotation, reloadSpeed, verticalGuidance
+) VALUES (
+    'Pz.35(t)',
+    'The Panzerkampfwagen 35(t), also known as LT vz.35, was a Czechoslovakian light tank designed in 1935 by engineers at Škoda. The LT vz.35 was the most numerous tank in the Czechoslovakian army; during its serial production until 1939, 434 units were manufactured. After the German occupation of Czechoslovakia in 1939, these tanks were taken into service by the Wehrmacht, where they received the designation Pz.35(t) (Tschecherei: "Czech"). They formed the core of the German 1st Light Division and, after its reorganisation, the 6th Tank Division. The tanks were actively used by the Wehrmacht during the invasion of Poland, France, and the USSR in 1939-41. In smaller numbers, they were also used by the armies of Romania, Slovakia, Bulgaria, and Hungary, to which they were exported from Germany. Introduced in Update 1.51 "Cold Steel", the Pz.35(t) represents an average but versatile vehicle, which copes well with a wide range of tasks on the battlefield. On the other hand, it does not excel in anything: in mobility, the Pz.35(t) is inferior to many other light tanks, and its armour and survivability are generally mediocre. However, the decent 37 mm gun and good frontal armour allow the vehicle to successfully perform the role of a "second line" machine.',
+    '25 / 16 / 16 mm',
+    '25 / 16 / 16 mm',
+    '4 persons',
+    '33 km/h',
+    '33 km/h',
+    '120 hp',
+    '10.5 tons',
+    '11.4 hp/ton',
+    '37 mm KwK34(t) cannon',
+    '72 rounds',
+    '10.5 -> 15°/s',
+    '9.8 -> 14°/s',
+    '4.3 -> 3.3 s',
+    '-10 / 25°'
+);
