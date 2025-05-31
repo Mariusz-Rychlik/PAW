@@ -1,0 +1,34 @@
+Apliakacja ta ma byc prosta w osbluze chinska podrobka war thunder wiki. W prostyu i przystepny sposob ma dawac uzytkownikowi dostep do informacji na temat czolgu ktory chce objerzec.
+
+cala prace wykonal mariusz rychlik
+
+bazadaynch przechowuje czolgi w bazie danych o nazwie tankdb, w tabeli o nazwie tanks i zbudowana jest tak
+
+  #	    Nazwa	                    Typ	          Collation	            Attributes	Null	Default  	Comments	Extra
+	1	    id Podstawowy	            int(11)			                                    Nie  	Brak		            AUTO_INCREMENT	
+	2    	name	                    varchar(255)	utf8mb4_general_ci		            Nie  	Brak			
+	3	    information	              text	        utf8mb4_general_ci		            Nie  	Brak			
+	4	    hullArmor	                varchar(255)	utf8mb4_general_ci	            	Tak  	NULL			
+	5	    turretArmor	              varchar(255)	utf8mb4_general_ci	             	Tak  	NULL			
+	6	    crew	                    varchar(255)	utf8mb4_general_ci	             	Tak	  NULL			
+	7	    forwardSpeed	            varchar(255)	utf8mb4_general_ci	            	Tak  	NULL			
+	8	    backwardSpeed	            varchar(255)	utf8mb4_general_ci	            	Tak  	NULL			
+	9	    enginePower	              varchar(255)	utf8mb4_general_ci	            	Tak	  NULL			
+	10	  weight	                  varchar(255)	utf8mb4_general_ci	            	Tak	  NULL				
+	11	  powerToWeightRatio        varchar(255)	utf8mb4_general_ci	            	Tak	  NULL			
+	12	  mainArmament	            text	        utf8mb4_general_ci	            	Tak  	NULL				
+	13	  ammunition	              varchar(255)	utf8mb4_general_ci	            	Tak  	NULL				
+	14	  verticalTurretRotation	  varchar(255)	utf8mb4_general_ci	            	Tak  	NULL				
+	15	  horizontalTurretRotation	varchar(255)	utf8mb4_general_ci	            	Tak  	NULL			
+	16	  reloadSpeed	              varchar(255)	utf8mb4_general_ci            		Tak	  NULL			
+	17	  verticalGuidance	        varchar(255)	utf8mb4_general_ci	            	Tak	  NULL	
+
+
+apliukacja zostala przetestowana i testy Api oraz testy komponentow wyszly pozytywnie. Pozytywne testy mozna podejrzez w odpowienich plikach graficznych
+
+api_test.png
+
+oraz 
+
+component_tests.png
+
